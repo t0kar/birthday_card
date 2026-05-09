@@ -17,7 +17,8 @@ const cardConfig = {
     description:
       'Ne gubi vrijeme tražeći savjete na Internetu, donesi svoj namještaj na radionicu i preuredi ga kao profesionalac!',
     buttonText: 'Preuzmi poklon',
-    giftUrl: '',
+    giftUrl:
+      'https://1drv.ms/b/c/9b950dbe2d2285ee/IQBTRkxmwGqjTpXxzbS39ffMATqUJreL6Gk6hJ3DfWF29us?e=g2qoug',
   },
 };
 
@@ -50,7 +51,9 @@ const senderName = document.querySelector('#senderName');
 const wishMessage = document.querySelector('#wishMessage');
 const giftButton = document.querySelector('#giftButton');
 const giftLabel = document.querySelector('#giftLabel');
+const giftOverlay = document.querySelector('#giftOverlay');
 const giftReveal = document.querySelector('#giftReveal');
+const giftCloseButton = document.querySelector('#giftCloseButton');
 const giftContent = document.querySelector('#giftContent');
 const confettiCanvas = document.querySelector('#confettiCanvas');
 const context = confettiCanvas.getContext('2d');
@@ -162,6 +165,7 @@ function buildGift() {
 
 function openGift() {
   if (opened) {
+    showGiftModal();
     return;
   }
 
@@ -169,10 +173,36 @@ function openGift() {
   giftButton.classList.add('opened');
   giftButton.setAttribute('aria-expanded', 'true');
   giftLabel.textContent = labels.openedGift;
-  giftReveal.hidden = false;
   buildGift();
+  showGiftModal();
   createSparkles();
   launchConfetti();
+}
+
+function showGiftModal() {
+  setElementVisibility(giftOverlay, true);
+  document.body.classList.add('modal-open');
+  giftButton.setAttribute('aria-expanded', 'true');
+  giftReveal.focus();
+}
+
+function closeGiftModal() {
+  setElementVisibility(giftOverlay, false);
+  document.body.classList.remove('modal-open');
+  giftButton.setAttribute('aria-expanded', 'false');
+  giftButton.focus();
+}
+
+function onGiftOverlayClick(event) {
+  if (event.target === giftOverlay) {
+    closeGiftModal();
+  }
+}
+
+function onDocumentKeydown(event) {
+  if (event.key === 'Escape' && giftOverlay && !giftOverlay.hidden) {
+    closeGiftModal();
+  }
 }
 
 function createSparkles() {
@@ -265,9 +295,13 @@ resizeCanvas();
 const hasGift = cardConfig.gift !== null;
 setElementVisibility(giftButton.closest('.gift-stage'), hasGift);
 if (!hasGift) {
-  setElementVisibility(giftReveal, false);
+  setElementVisibility(giftOverlay, false);
 } else {
+  setElementVisibility(giftOverlay, false);
   giftButton.addEventListener('click', openGift);
+  giftCloseButton.addEventListener('click', closeGiftModal);
+  giftOverlay.addEventListener('click', onGiftOverlayClick);
+  document.addEventListener('keydown', onDocumentKeydown);
 }
 
 window.addEventListener('resize', resizeCanvas);

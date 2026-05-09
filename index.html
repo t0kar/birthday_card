@@ -45,7 +45,7 @@
             id="giftButton"
             type="button"
             aria-expanded="false"
-            aria-controls="giftReveal"
+            aria-controls="giftOverlay"
           >
             <span class="gift-lid"></span>
             <span class="gift-bow"></span>
@@ -58,9 +58,26 @@
           </button>
         </div>
 
-        <section class="gift-reveal" id="giftReveal" hidden>
-          <div class="voucher" id="giftContent"></div>
-        </section>
+        <div class="gift-overlay" id="giftOverlay" hidden>
+          <section
+            class="gift-reveal"
+            id="giftReveal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="giftModalTitle"
+            tabindex="-1"
+          >
+            <button
+              class="gift-close"
+              id="giftCloseButton"
+              type="button"
+              aria-label="Close gift"
+            >
+              ×
+            </button>
+            <div class="voucher" id="giftContent"></div>
+          </section>
+        </div>
       </section>
     </main>
 
