@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Wish Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="card-shell" aria-live="polite">
+      <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+      <section
+        class="birthday-card"
+        id="birthdayCard"
+        aria-label="Digital birthday card"
+      >
+        <div class="sky-decor" aria-hidden="true">
+          <span class="cloud cloud-one"></span>
+          <span class="cloud cloud-two"></span>
+          <span class="star star-one">*</span>
+          <span class="star star-two">*</span>
+          <span class="star star-three">*</span>
+        </div>
+
+        <div class="message-panel">
+          <p class="kicker" id="birthdayNumber"></p>
+          <h1 id="birthdayHeading"></h1>
+          <p class="wish-copy" id="wishMessage"></p>
+          <p class="signature">
+            <span id="signatureLabel">With love</span>,
+            <strong id="senderName"></strong>
+          </p>
+        </div>
+
+        <div class="gift-stage">
+          <button
+            class="gift-button"
+            id="giftButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="giftReveal"
+          >
+            <span class="gift-lid"></span>
+            <span class="gift-bow"></span>
+            <span class="gift-box">
+              <span class="gift-ribbon-vertical"></span>
+              <span class="gift-ribbon-horizontal"></span>
+            </span>
+            <span class="gift-shadow"></span>
+            <span class="gift-label" id="giftLabel">Open me</span>
+          </button>
+        </div>
+
+        <section class="gift-reveal" id="giftReveal" hidden>
+          <div class="voucher" id="giftContent"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
