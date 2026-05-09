@@ -623,7 +623,7 @@ h1 {
   .cake-decor {
     display: block;
     top: 53px;
-    right: 56px;
+    right: 31px;
     transform: scale(1.25);
   }
 
@@ -746,7 +746,7 @@ h1 {
 
   .cake-decor {
     top: 48px;
-    right: 44px;
+    right: 25px;
     transform: scale(1.2);
   }
 
