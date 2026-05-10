@@ -4,8 +4,7 @@ const cardConfig = {
   birthdayNumber: null,
   recipientName: 'Marina',
   senderName: 'Petra, Antonia & Toma',
-  wishMessage:
-    'Neka ti dan bude vedar, sladak, zabavan i pun malih iznenađenja. Evo jedan mali digitalni poklon samo za tebe.',
+  wishMessage: null,
 
   // Gift options:
   // - type: "voucher" shows the built-in voucher below.
@@ -14,8 +13,7 @@ const cardConfig = {
   gift: {
     type: 'voucher',
     title: 'Radionica preuređenja namještaja',
-    description:
-      'Ne gubi vrijeme tražeći savjete na Internetu, donesi svoj namještaj na radionicu i preuredi ga kao profesionalac!',
+    description: 'Da ona ružna kužina zasja u svojm punom potencijalu!',
     buttonText: 'Preuzmi poklon',
     giftUrl:
       'https://1drv.ms/b/c/9b950dbe2d2285ee/IQBTRkxmwGqjTpXxzbS39ffMATqUJreL6Gk6hJ3DfWF29us?e=g2qoug',
